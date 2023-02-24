@@ -1,0 +1,24 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: blog-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.222.111.81:8850
+    gateway:
+      routes:
+        - id: bing_route
+          uri: https://www.bing.com
+          predicates:
+            - Query=url,bing
+        - id: qq_route
+          uri: https://www.qq.com
+          predicates:
+            - Query=url,qq
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto

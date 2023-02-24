@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.castle.sparkblog</groupId>
+        <artifactId>spark</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>blog-common</artifactId>
+    <name>common</name>
+    <description>闪客-各个微服务公共的依赖，Bean，工具类等</description>
+
+    <properties>
+        <mybatisplus.version>3.3.1</mybatisplus.version>
+        <lombok.version>1.18.14</lombok.version>
+        <httpcore.version>4.4.15</httpcore.version>
+        <commons.lang.version>2.6</commons.lang.version>
+        <mysql.connector.java.version>8.0.28</mysql.connector.java.version>
+        <servlet.api.version>2.5</servlet.api.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <!-- mybatis-plus -->
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatisplus.version}</version>
+        </dependency>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <!-- httpcore -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>${httpcore.version}</version>
+        </dependency>
+        <!-- commons-lang -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons.lang.version}</version>
+        </dependency>
+        <!-- 导入mysql驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.java.version}</version>
+        </dependency>
+        <!-- servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- nacos服务注册发现依赖 (排除 ribbon，添加 loadbalancer) -->
+        <!-- <dependency> -->
+        <!--     <groupId>com.alibaba.cloud</groupId> -->
+        <!--     <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId> -->
+        <!--     <exclusions> -->
+        <!--         <exclusion> -->
+        <!--             <groupId>org.springframework.cloud</groupId> -->
+        <!--             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId> -->
+        <!--         </exclusion> -->
+        <!--         <exclusion> -->
+        <!--             <groupId>com.alibaba.nacos</groupId> -->
+        <!--             <artifactId>nacos-client</artifactId> -->
+        <!--         </exclusion> -->
+        <!--     </exclusions> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!--     <groupId>org.springframework.cloud</groupId> -->
+        <!--     <artifactId>spring-cloud-loadbalancer</artifactId> -->
+        <!-- </dependency> -->
+        <!-- &lt;!&ndash; nacos的配置管理依赖 &ndash;&gt; -->
+        <!-- <dependency> -->
+        <!--     <groupId>com.alibaba.cloud</groupId> -->
+        <!--     <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId> -->
+        <!--     <exclusions> -->
+        <!--         <exclusion> -->
+        <!--             <groupId>com.alibaba.nacos</groupId> -->
+        <!--             <artifactId>nacos-client</artifactId> -->
+        <!--         </exclusion> -->
+        <!--     </exclusions> -->
+        <!-- </dependency> -->
+        <!-- &lt;!&ndash; bootstrap &ndash;&gt; -->
+        <!-- <dependency> -->
+        <!--     <groupId>org.springframework.cloud</groupId> -->
+        <!--     <artifactId>spring-cloud-starter-bootstrap</artifactId> -->
+        <!-- </dependency> -->
+    </dependencies>
+</project>
