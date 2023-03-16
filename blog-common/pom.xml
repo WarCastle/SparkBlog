@@ -14,7 +14,7 @@
     <description>闪客-各个微服务公共的依赖，Bean，工具类等</description>
 
     <properties>
-        <mybatisplus.version>3.3.1</mybatisplus.version>
+        <mybatisplus.version>3.4.3</mybatisplus.version>
         <lombok.version>1.18.14</lombok.version>
         <httpcore.version>4.4.15</httpcore.version>
         <commons.lang.version>2.6</commons.lang.version>
@@ -60,41 +60,55 @@
             <version>${servlet.api.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!-- fastjson依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.33</version>
+        </dependency>
+
+        <!-- pool2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+
+        <!-- hutool -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.17</version>
+        </dependency>
 
         <!-- nacos服务注册发现依赖 (排除 ribbon，添加 loadbalancer) -->
-        <!-- <dependency> -->
-        <!--     <groupId>com.alibaba.cloud</groupId> -->
-        <!--     <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId> -->
-        <!--     <exclusions> -->
-        <!--         <exclusion> -->
-        <!--             <groupId>org.springframework.cloud</groupId> -->
-        <!--             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId> -->
-        <!--         </exclusion> -->
-        <!--         <exclusion> -->
-        <!--             <groupId>com.alibaba.nacos</groupId> -->
-        <!--             <artifactId>nacos-client</artifactId> -->
-        <!--         </exclusion> -->
-        <!--     </exclusions> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>org.springframework.cloud</groupId> -->
-        <!--     <artifactId>spring-cloud-loadbalancer</artifactId> -->
-        <!-- </dependency> -->
-        <!-- &lt;!&ndash; nacos的配置管理依赖 &ndash;&gt; -->
-        <!-- <dependency> -->
-        <!--     <groupId>com.alibaba.cloud</groupId> -->
-        <!--     <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId> -->
-        <!--     <exclusions> -->
-        <!--         <exclusion> -->
-        <!--             <groupId>com.alibaba.nacos</groupId> -->
-        <!--             <artifactId>nacos-client</artifactId> -->
-        <!--         </exclusion> -->
-        <!--     </exclusions> -->
-        <!-- </dependency> -->
-        <!-- &lt;!&ndash; bootstrap &ndash;&gt; -->
-        <!-- <dependency> -->
-        <!--     <groupId>org.springframework.cloud</groupId> -->
-        <!--     <artifactId>spring-cloud-starter-bootstrap</artifactId> -->
-        <!-- </dependency> -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+        </dependency>
+        <!-- nacos的配置管理依赖 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!-- bootstrap -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>spark</artifactId>
+        <groupId>com.castle.sparkblog</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>blog-security</artifactId>
+    <name>blog-security</name>
+    <description>闪客-安全服务</description>
+
+    <dependencies>
+        <!-- common公共服务依赖 -->
+        <dependency>
+            <groupId>com.castle.sparkblog</groupId>
+            <artifactId>blog-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- SpringSecurity启动器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- feign远程调用依赖 -->
+        <dependency>
+            <groupId>com.castle.sparkblog</groupId>
+            <artifactId>blog-feign</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!-- jwt依赖 -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <!-- user用户依赖 -->
+        <dependency>
+            <groupId>com.castle.sparkblog</groupId>
+            <artifactId>blog-user</artifactId>
+            <version>1.0.0</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>

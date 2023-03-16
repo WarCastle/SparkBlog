@@ -1,20 +1,23 @@
-server:
-  port: 8005
-spring:
-  application:
-    name: blog-user
-  datasource:
-    username: root
-    password: 3307yun3306
-    url: jdbc:mysql://124.222.111.81:3307/user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 124.222.111.81:8850
-
-mybatis-plus:
-  mapper-locations: classpath*:/mapper/**/*.xml
-  global-config:
-    db-config:
-      id-type: auto
+#server:
+#  port: 8010
+#spring:
+#  application:
+#    name: blog-user
+#  datasource:
+#    username: root
+#    password: 3307yun3306
+#    url: jdbc:mysql://124.222.111.81:3307/blog_user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 124.222.111.81:8849
+#      config:
+#        namespace: 4078f2a6-b8df-4f2e-a81d-093276a72190
+#
+#
+#mybatis-plus:
+#  mapper-locations: classpath*:/mapper/**/*.xml
+#  global-config:
+#    db-config:
+#      id-type: auto

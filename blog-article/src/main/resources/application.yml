@@ -6,12 +6,12 @@ spring:
   datasource:
     username: root
     password: 3307yun3306
-    url: jdbc:mysql://124.222.111.81:3307/article?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://124.222.111.81:3307/blog_article?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
       discovery:
-        server-addr: 124.222.111.81:8850
+        server-addr: 124.222.111.81:8849
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml

@@ -18,6 +18,12 @@
         <dependency>
             <groupId>com.castle.sparkblog</groupId>
             <artifactId>blog-common</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
             <version>1.0.0</version>
         </dependency>
         <!-- feign远程调用依赖 -->

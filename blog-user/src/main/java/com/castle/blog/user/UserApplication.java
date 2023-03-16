@@ -1,8 +1,10 @@
 package com.castle.blog.user;
 
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 /**
  * @author YuLong
@@ -10,8 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Classname UserApplication
  * @Description 用户服务启动类
  */
-
 @Slf4j
+@RefreshScope
+@MapperScan("com.castle.blog.user.mapper")
 @SpringBootApplication
 public class UserApplication {
 

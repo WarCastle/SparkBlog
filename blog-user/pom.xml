@@ -20,12 +20,7 @@
             <artifactId>blog-common</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <!-- feign远程调用依赖 -->
-        <dependency>
-            <groupId>com.castle.sparkblog</groupId>
-            <artifactId>blog-feign</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+
     </dependencies>
 
 </project>

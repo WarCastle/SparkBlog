@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.castle.blog.user.mapper.UserMapper">
+
+    <!-- 查询模块 -->
+    <select id="selectUserByUserName" resultType="com.castle.blog.user.entity.User">
+        SELECT *
+        FROM sys_user
+        where user_name = #{userName};
+    </select>
+    <select id="selectUserByPhone" resultType="com.castle.blog.user.entity.User">
+        SELECT *
+        FROM sys_user
+        where phone = #{phone};
+    </select>
+
+    <!-- 插入模块 -->
+    <insert id="insertUserBak">
+        INSERT sys_user (user_id, phone, email, user_name, nick_name, password, avatar, sex, tags, login_status,
+                         friend_ids, birthday, login_time, last_time, create_time, update_time)
+        VALUES (#{userId}, #{phone}, #{email}, #{userName}, #{nickName}, #{password}, #{avatar}, #{sex}, #{tags},
+                #{loginStatus},
+                #{friendIds}, #{birthday}, #{loginTime}, #{lastTime}, #{createTime}, #{updateTime});
+    </insert>
+
+    <insert id="insertUser">
+        INSERT sys_user (user_id, phone, email, user_name, nick_name, password, sex)
+        VALUES (#{userId}, #{phone}, #{email}, #{userName}, #{nickName}, #{password}, #{sex});
+    </insert>
+</mapper>

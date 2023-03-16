@@ -25,12 +25,11 @@
             <artifactId>blog-common</artifactId>
             <version>1.0.0</version>
             <optional>true</optional>
-            <!-- <exclusions> -->
-            <!--     <exclusion> -->
-            <!--         <groupId>com.baomidou</groupId> -->
-            <!--         <artifactId>mybatis-plus-core</artifactId> -->
-            <!--     </exclusion> -->
-            <!-- </exclusions> -->
+        </dependency>
+        <dependency>
+            <groupId>com.castle.sparkblog</groupId>
+            <artifactId>blog-user</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

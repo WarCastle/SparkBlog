@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.castle.blog.security.mapper.RoleMapper">
+
+    <!-- 查询模块 -->
+    <select id="selectByUserId" resultType="com.castle.blog.security.entity.Role">
+        SELECT sys_role.role_id, role_name, role_key, status, remark
+        FROM sys_role
+                 INNER JOIN sys_user_role AS sur ON sys_role.role_id = sur.role_id
+        WHERE sur.user_id = #{userId};
+    </select>
+    <select id="selectRolesByUserId" resultType="java.lang.String">
+        SELECT sys_role.role_id, role_name, role_key, status, remark
+        FROM sys_role
+                 INNER JOIN sys_user_role AS sur ON sys_role.role_id = sur.role_id
+        WHERE sur.user_id = #{userId};
+    </select>
+
+    <!-- 插入模块 -->
+    <insert id="insertRole">
+        INSERT INTO sys_role (role_id, role_name, role_key, remark) value (#{roleId}, #{roleName}, #{roleKey}, #{remark});
+    </insert>
+
+</mapper>

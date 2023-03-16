@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: blog-tag
+  cloud:
+    nacos:
+      config:
+        server-addr: 124.222.111.81:8849
+        file-extension: yaml # 文件后缀名
+        namespace: 4078f2a6-b8df-4f2e-a81d-093276a72190
+        group: dev
+        extension-configs:
+          - data-id: blog-tag-hot-data
+            group: dev
+            refresh: true
+          - data-id: blog-tag-datasource.yml
+            group: dev
+            refresh: true
+          - data-id: blog-tag-other.yml
+            group: dev
+            refresh: true
+          - data-id: blog-common.yml
+            group: dev
+            refresh: true

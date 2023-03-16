@@ -13,6 +13,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.5</version>
+        <relativePath/>
     </parent>
 
     <properties>
@@ -34,6 +35,8 @@
         <module>blog-gateway</module>
         <module>blog-tag</module>
         <module>blog-user</module>
+        <module>blog-rabbitmq</module>
+        <module>blog-security</module>
 
     </modules>
 

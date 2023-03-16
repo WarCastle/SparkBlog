@@ -1,0 +1,37 @@
+#server:
+#  port: 8090
+#spring:
+#  application:
+#    name: blog-security
+#  datasource:
+#    username: root
+#    password: 3307yun3306
+#    url: jdbc:mysql://124.222.111.81:3307/blog_security?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  redis:
+#    host: 124.222.111.81
+#    port: 5268
+#    password: 6379yun5268
+#    lettuce:
+#      pool:
+#        max-active: 10
+#        max-idle: 10
+#        min-idle: 1
+#        time-between-eviction-runs: 10s
+#    database: 1
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 124.222.111.81:8849
+#
+#  jackson:
+#    # 常用请求与响应自动转下划线，空值字段不传输
+#    property-naming-strategy: SNAKE_CASE
+#    default-property-inclusion: non_null
+#
+#mybatis-plus:
+#  mapper-locations: classpath*:/mapper/**/*.xml
+#  global-config:
+#    db-config:
+#      id-type: auto
+#
