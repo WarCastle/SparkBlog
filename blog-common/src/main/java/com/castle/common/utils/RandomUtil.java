@@ -15,8 +15,8 @@ public class RandomUtil {
     private static final String LOWERCASE_NUM_STR = "abcdefghijklmnopqrstuvwxyz1234567890";
     private static final String UPPERCASE_NUM_STR = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-    public static String randomNumber(int count) {
-        return RandomStringUtils.random(count, false, true);
+    public static Long randomNumber(int count) {
+        return Long.valueOf(RandomStringUtils.random(count, false, true));
     }
 
     public static String randomLetter(int count) {

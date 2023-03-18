@@ -68,12 +68,12 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                // 对于登录接口 仅匿名访问
-                .antMatchers("/verify/user/login").anonymous()
+                // 仅匿名访问
                 .antMatchers("/sms/user/send/code").anonymous()
                 .antMatchers("/sms/user/login").anonymous()
-                // 对于 hello接口 登录用户和匿名都可访问
+                // 对于 登录和退出登录接口 和 hello接口 登录用户和匿名都可访问
                 .antMatchers("/test/hello").permitAll()
+                .antMatchers("/verify/user/**").permitAll()
                 // 对于 testCors接口 需要具备权限才能访问
                 .antMatchers("/testCors").hasAuthority("system:dept:list")
                 // 除上面外的所有请求全部需要鉴权认证（任何经过身份验证的用户都可以访问）

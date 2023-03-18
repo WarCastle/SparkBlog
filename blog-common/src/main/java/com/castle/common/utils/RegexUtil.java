@@ -5,10 +5,10 @@ import org.springframework.util.StringUtils;
 /**
  * @author YuLong
  * Date: 2023/3/5 21:30
- * @Classname RegexUtils
+ * @Classname RegexUtil
  * @Description 验证工具类
  */
-public class RegexUtils {
+public class RegexUtil {
 
     /**
      * 是否是无效手机格式

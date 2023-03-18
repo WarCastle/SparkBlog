@@ -29,4 +29,8 @@
         INSERT sys_user (user_id, phone, email, user_name, nick_name, password, sex)
         VALUES (#{userId}, #{phone}, #{email}, #{userName}, #{nickName}, #{password}, #{sex});
     </insert>
+    <insert id="insertByUserName">
+        INSERT sys_user (user_id, user_name, password)
+        VALUES (#{userId}, #{userName}, #{password});
+    </insert>
 </mapper>

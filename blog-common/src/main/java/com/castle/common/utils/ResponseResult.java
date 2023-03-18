@@ -3,10 +3,6 @@ package com.castle.common.utils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.http.HttpStatus;
-
-import static com.castle.common.utils.MessageConstants.REQUEST_SUCCESS;
-import static com.castle.common.utils.MessageConstants.UN_KNOWN_ERROR;
 
 /**
  * @author YuLong
@@ -39,7 +35,7 @@ public class ResponseResult<T> {
     /* 响应成功消息结果 */
 
     public static <T> ResponseResult<T> success() {
-        return success(HttpStatus.OK.value(), REQUEST_SUCCESS);
+        return success(StatusCode.OK.value(), StatusCode.OK.msg());
     }
 
     public static <T> ResponseResult<T> success(Integer code, String msg) {
@@ -54,7 +50,7 @@ public class ResponseResult<T> {
 
 
     public static <T> ResponseResult<T> error() {
-        return error(HttpStatus.INTERNAL_SERVER_ERROR.value(), UN_KNOWN_ERROR);
+        return error(StatusCode.INTERNAL_SERVER_ERROR.value(), StatusCode.INTERNAL_SERVER_ERROR.msg());
     }
 
     public static <T> ResponseResult<T> error(Integer code, String msg) {

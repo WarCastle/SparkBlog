@@ -5,7 +5,7 @@ import com.castle.blog.security.entity.Role;
 import com.castle.blog.security.service.RoleService;
 import com.castle.blog.user.entity.User;
 import com.castle.common.utils.RandomUtil;
-import com.castle.common.utils.RedisUtils;
+import com.castle.common.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.math.RandomUtils;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static com.castle.common.utils.RedisConstants.USER_PREFIX_TOKEN;
+import static com.castle.common.constants.RedisConstants.USER_PREFIX_TOKEN;
 
 /**
  * @author YuLong
@@ -35,7 +35,7 @@ public class UtilTest {
     @Resource
     private RoleService roleService;
     @Resource
-    private RedisUtils redisUtils;
+    private RedisUtil redisUtil;
     private final int count = 50;
 
     @Test
@@ -50,17 +50,17 @@ public class UtilTest {
         user.setPassword("123456");
         user.setPhone("15915638361");
         user.setSex("0");
-        redisUtils.setRedisObject(userKey, user, 1L, TimeUnit.MINUTES);
-        Object redisObject = redisUtils.getRedisObject(userKey);
+        redisUtil.setRedisObject(userKey, user, 1L, TimeUnit.MINUTES);
+        Object redisObject = redisUtil.getRedisObject(userKey);
         log.info("redisObject = {}", redisObject);
     }
 
     @Test
     public void testRandom1() {
-        String s1 = RandomUtil.randomNumber(count);
+        Long n1 = RandomUtil.randomNumber(count);
         String s2 = RandomUtil.randomLetter(count);
         String s3 = RandomUtil.randomNumLetter(count);
-        log.info("{}\n{}\n{}", s1, s2, s3);
+        log.info("{}\n{}\n{}", n1, s2, s3);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class UtilTest {
     @Test
     public void testSaveRole() {
         Role role = new Role();
-        role.setRoleId(Long.valueOf(RandomUtil.randomNumber(19)));
+        role.setRoleId(RandomUtil.randomNumber(19));
         role.setRoleName("管理员");
         role.setRoleCode("super");
         role.setStatus("1");

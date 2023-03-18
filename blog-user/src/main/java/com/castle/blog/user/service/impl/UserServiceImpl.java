@@ -1,6 +1,7 @@
 package com.castle.blog.user.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.castle.blog.user.domain.UserDTO;
 import com.castle.blog.user.entity.User;
 import com.castle.blog.user.mapper.UserMapper;
 import com.castle.blog.user.service.UserService;
@@ -53,6 +54,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     @Override
     public void saveUser(User user) {
         userMapper.insertUser(user);
+    }
+
+    /**
+     * 用户名注册
+     *
+     * @param userDTO 用户 DTO
+     * @return ResponseResult
+     */
+    @Override
+    public boolean saveByUserName(UserDTO userDTO) {
+        log.info("进入userService...saveByUserName");
+        Integer num = userMapper.insertByUserName(userDTO);
+        return num > 0;
     }
 }
 

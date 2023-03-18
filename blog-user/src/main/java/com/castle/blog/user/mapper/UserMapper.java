@@ -1,6 +1,7 @@
 package com.castle.blog.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.castle.blog.user.domain.UserDTO;
 import com.castle.blog.user.entity.User;
 
 /**
@@ -34,6 +35,13 @@ public interface UserMapper extends BaseMapper<User> {
      */
     void insertUser(User user);
 
+    /**
+     * 用户名注册
+     *
+     * @param userDTO 用户 DTO
+     * @return ResponseResult
+     */
+    Integer insertByUserName(UserDTO userDTO);
 }
 
 

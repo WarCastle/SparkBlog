@@ -2,7 +2,8 @@ package com.castle.blog.security.filter;
 
 import com.castle.blog.security.domain.LoginUserDetails;
 import com.castle.blog.security.utils.JwtUtil;
-import com.castle.common.utils.RedisUtils;
+import com.castle.common.utils.RedisUtil;
+import com.castle.common.utils.StatusCode;
 import io.jsonwebtoken.Claims;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,11 +18,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
-import static com.castle.common.utils.MessageConstants.TOKEN_PARSE_FAIL;
-import static com.castle.common.utils.MessageConstants.USER_UN_LOGIN;
-import static com.castle.common.utils.RedisConstants.TOKEN;
-import static com.castle.common.utils.RedisConstants.USER_LOGIN_KEY;
+import static com.castle.common.constants.DigitConstants.USER_LOGIN_EXPIRE;
+import static com.castle.common.constants.RedisConstants.TOKEN;
+import static com.castle.common.constants.RedisConstants.USER_LOGIN_KEY;
 
 /**
  * @author YuLong
@@ -33,7 +34,7 @@ import static com.castle.common.utils.RedisConstants.USER_LOGIN_KEY;
 public class UserJwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Resource
-    private RedisUtils redisUtils;
+    private RedisUtil redisUtil;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -51,15 +52,17 @@ public class UserJwtAuthenticationTokenFilter extends OncePerRequestFilter {
             Claims claims = JwtUtil.parseJWT(token);
             userId = claims.getSubject();
         } catch (Exception e) {
-            throw new RuntimeException(TOKEN_PARSE_FAIL);
+            throw new RuntimeException(StatusCode.TOKEN_PARSE_FAIL.msg());
         }
 
         // 从 redis中获取用户信息
         String redisKey = USER_LOGIN_KEY + userId;
-        LoginUserDetails userDetails = redisUtils.getRedisObject(redisKey);
+        LoginUserDetails userDetails = redisUtil.getRedisObject(redisKey);
         if (Objects.isNull(userDetails)) {
-            throw new RuntimeException(USER_UN_LOGIN);
+            throw new RuntimeException(StatusCode.USER_AUTHENTICATION_FAIL.msg());
         }
+        // 重新设置用户登录过期时间，维持用户正常登录状态
+        redisUtil.expire(redisKey, USER_LOGIN_EXPIRE, TimeUnit.MINUTES);
 
         /*
             存入SecurityContextHolder

@@ -1,6 +1,7 @@
 package com.castle.blog.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.castle.blog.user.domain.UserDTO;
 import com.castle.blog.user.entity.User;
 
 /**
@@ -34,4 +35,11 @@ public interface UserService extends IService<User> {
      */
     void saveUser(User user);
 
+    /**
+     * 用户名注册
+     *
+     * @param userDTO 用户 DTO
+     * @return ResponseResult
+     */
+    boolean saveByUserName(UserDTO userDTO);
 }

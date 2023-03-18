@@ -1,4 +1,4 @@
-package com.castle.common.utils;
+package com.castle.common.constants;
 
 /**
  * @author YuLong

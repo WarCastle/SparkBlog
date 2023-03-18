@@ -1,5 +1,6 @@
 package com.castle.blog.feign.clients.user;
 
+import com.castle.blog.user.domain.UserDTO;
 import com.castle.blog.user.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,10 +45,19 @@ public interface UserServiceClient {
     User findUserByPhone(@RequestParam("phone") String phone);
 
     /**
-     * 保存用户信息
+     * 保存用户信息（测试）
      *
      * @param user 用户
      */
-    @PostMapping("/save")
+    @PostMapping("/save/test")
     void saveUser(@RequestBody User user);
+
+    /**
+     * 用户名注册
+     *
+     * @param userDTO 用户 DTO
+     * @return ResponseResult
+     */
+    @PostMapping("/save/username")
+    boolean saveByUserName(@RequestBody UserDTO userDTO);
 }

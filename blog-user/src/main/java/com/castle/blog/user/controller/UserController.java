@@ -1,5 +1,6 @@
 package com.castle.blog.user.controller;
 
+import com.castle.blog.user.domain.UserDTO;
 import com.castle.blog.user.entity.User;
 import com.castle.blog.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -45,12 +46,24 @@ public class UserController {
     }
 
     /**
-     * 保存用户信息
+     * 保存用户信息（测试）
      *
      * @param user 用户
      */
-    @PostMapping("/save")
+    @PostMapping("/save/test")
     public void saveUser(@RequestBody User user) {
         userService.saveUser(user);
+    }
+
+    /**
+     * 用户名注册
+     *
+     * @param userDTO 用户 DTO
+     * @return ResponseResult
+     */
+    @PostMapping("/save/username")
+    boolean saveByUserName(@RequestBody UserDTO userDTO) {
+        log.info("进入userController...saveByUserName");
+        return userService.saveByUserName(userDTO);
     }
 }

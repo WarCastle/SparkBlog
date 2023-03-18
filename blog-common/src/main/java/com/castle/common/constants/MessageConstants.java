@@ -1,4 +1,4 @@
-package com.castle.common.utils;
+package com.castle.common.constants;
 
 /**
  * @author YuLong
@@ -16,7 +16,7 @@ public class MessageConstants {
     public static final String USER_AUTHENTICATION_FAIL = "用户认证失败，请登录账号";
     public static final String UN_KNOWN_ERROR = "未知错误，请联系管理员";
     public static final String REQUEST_SUCCESS = "请求成功";
-    public static final String LOGIN_SUCCESS = "登录成功";
     public static final String LOGIN_PASSWORD_ERROR = "登录失败，用户名或密码错误";
+    public static final String LOGIN_SUCCESS = "登录成功";
     public static final String LOGOUT_SUCCESS = "退出登录成功";
 }

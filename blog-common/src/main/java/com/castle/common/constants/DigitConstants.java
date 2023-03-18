@@ -1,4 +1,4 @@
-package com.castle.common.utils;
+package com.castle.common.constants;
 
 /**
  * @author YuLong
@@ -8,4 +8,6 @@ package com.castle.common.utils;
  */
 public class DigitConstants {
     public static final Integer SMS_CODE_LENGTH = 6;
+    public static final Integer ID_LENGTH = 19;
+    public static final Long USER_LOGIN_EXPIRE = 30L;
 }

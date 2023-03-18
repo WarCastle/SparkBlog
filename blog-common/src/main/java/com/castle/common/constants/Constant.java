@@ -1,4 +1,4 @@
-package com.castle.common.utils;
+package com.castle.common.constants;
 
 import com.castle.common.validator.group.AliyunGroup;
 import com.castle.common.validator.group.QcloudGroup;
